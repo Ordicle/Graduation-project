@@ -12,7 +12,11 @@ TextureImporter:
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
+<<<<<<< HEAD
+    borderMipMap: 0
+=======
     borderMipMap: 1
+>>>>>>> 9b33b2a0072e38317bc097c2d33da4a31aa0b404
     mipMapsPreserveCoverage: 0
     alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
@@ -32,6 +36,17 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: -1
+<<<<<<< HEAD
+    aniso: -1
+    mipBias: -1
+    wrapU: -1
+    wrapV: -1
+    wrapW: -1
+  nPOTScale: 1
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+=======
     aniso: 0
     mipBias: -1
     wrapU: 0
@@ -41,6 +56,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
+>>>>>>> 9b33b2a0072e38317bc097c2d33da4a31aa0b404
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +64,11 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaUsage: 1
+<<<<<<< HEAD
+  alphaIsTransparency: 0
+=======
   alphaIsTransparency: 1
+>>>>>>> 9b33b2a0072e38317bc097c2d33da4a31aa0b404
   spriteTessellationDetail: -1
   textureType: 0
   textureShape: 1
@@ -57,6 +77,9 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
+<<<<<<< HEAD
+    maxTextureSize: 2048
+=======
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -68,6 +91,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - buildTarget: Standalone
     maxTextureSize: 8192
+>>>>>>> 9b33b2a0072e38317bc097c2d33da4a31aa0b404
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -81,7 +105,11 @@ TextureImporter:
     sprites: []
     outline: []
     physicsShape: []
+<<<<<<< HEAD
+  spritePackingTag: 
+=======
   spritePackingTag: 10
+>>>>>>> 9b33b2a0072e38317bc097c2d33da4a31aa0b404
   userData: 
   assetBundleName: 
   assetBundleVariant: 
