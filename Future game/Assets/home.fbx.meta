@@ -1,15 +1,17 @@
 fileFormatVersion: 2
-guid: af9cd4ac32a2a464192132824e6dfe51
-timeCreated: 1521460437
+guid: d3258ea9923f5e849a8a06cb3687888b
+timeCreated: 1521480475
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cube
+    4300000: Plane
+    6400000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -42,7 +44,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
