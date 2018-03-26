@@ -1,7 +1,13 @@
 ﻿
+<<<<<<< HEAD
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Future game", "Assembly-CSharp-firstpass.csproj", "{ADEB3C3B-13ED-9D00-8659-9819A7D20932}"
+=======
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Future game.Plugins", "Future game.Plugins.csproj", "{F34B07AE-33C0-4990-BF3F-F564DB67D774}"
+>>>>>>> 5ed9ee47be1ecc4e8f0d1b39b03cdfeab1d10bd4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Future game", "Assembly-CSharp.csproj", "{7E6E3CE1-AADA-28EF-C295-FDE7AE90309C}"
 EndProject
