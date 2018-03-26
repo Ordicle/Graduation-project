@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1536
     height: 781
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 1
-  controlID: 78
+  controlID: 122
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 79
+  controlID: 123
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 38
+  controlID: 124
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 112
+  controlID: 125
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -492,14 +492,14 @@ MonoBehaviour:
     height: 433
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 0
-  lastFramingTime: 9190.354027828898
+  lastFramingTime: 329.00376802534913
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 41.786957, y: 10.885637, z: 40.49354}
+    m_Target: {x: 49.2603, y: 28.812956, z: 60.01213}
     speed: 2
-    m_Value: {x: 41.786957, y: 10.885637, z: 40.49354}
+    m_Value: {x: 49.2603, y: 28.812956, z: 60.01213}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -523,13 +523,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.18381606, y: -0.7999611, z: 0.2970113, w: -0.48791206}
+    m_Target: {x: 0.095804386, y: 0.85155636, z: -0.48917416, w: 0.16242516}
     speed: 2
-    m_Value: {x: 0.18381606, y: 0.7999611, z: -0.2970113, w: 0.48791206}
+    m_Value: {x: 0.095804386, y: 0.85155636, z: -0.48917416, w: 0.16242516}
   m_Size:
-    m_Target: 22.166285
+    m_Target: 25.78303
     speed: 2
-    m_Value: 22.166285
+    m_Value: 25.78303
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -570,9 +570,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 9efbffff00000000
+    m_SelectedIDs: 86670000
+    m_LastClickedID: 26502
+    m_ExpandedIDs: 46e5feff9efbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -619,7 +619,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 309
     y: 92
-    width: 950
+    width: 948
     height: 433
   m_PersistentViewDataDictionary: {fileID: 0}
   m_MaximizeOnPlay: 0
@@ -630,8 +630,8 @@ MonoBehaviour:
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
-    m_HBaseRangeMin: -475
-    m_HBaseRangeMax: 475
+    m_HBaseRangeMin: -474
+    m_HBaseRangeMax: 474
     m_VBaseRangeMin: -208
     m_VBaseRangeMax: 208
     m_HAllowExceedBaseRangeMin: 1
@@ -650,25 +650,25 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
-      width: 950
+      width: 948
       height: 416
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 475, y: 208}
+    m_Translation: {x: 474, y: 208}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -475
+      x: -474
       y: -208
-      width: 950
+      width: 948
       height: 416
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
-  m_LastWindowPixelSize: {x: 950, y: 433}
+  m_LastWindowPixelSize: {x: 948, y: 433}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
@@ -790,10 +790,10 @@ MonoBehaviour:
   m_LastProjectPath: C:\Users\Acer\Documents\GitHub\Graduation-project\Future game
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 79}
     m_SelectedIDs: d4270000
     m_LastClickedID: 10196
-    m_ExpandedIDs: 00000000d4270000dc27000008290000142a0000042b0000322b00004a2e00004c2e000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000d4270000dc2700000a290000f0290000282a00002a2b0000582b0000fe2f00000030000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -821,7 +821,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d4270000dc27000008290000142a0000042b0000322b00004a2e00004c2e0000
+    m_ExpandedIDs: 00000000d4270000dc2700000a290000f0290000282a00002a2b0000582b0000fe2f000000300000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
