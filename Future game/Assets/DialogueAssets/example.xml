@@ -1,0 +1,23 @@
+<dialogue>
+  <node>
+    <text>И чё тебе надо?</text>  
+  </node>
+  <node>
+    <text>Борзый что ли?</text>
+  </node>
+  <node>
+    <text>
+      А ну иди сюда!!!
+    </text>
+  </node>
+  <node>
+    <text>
+     Ясно всё с тобой...
+    </text>
+  </node>
+<node>
+    <text>
+     Всё, вали
+    </text>
+  </node>
+</dialogue>
