@@ -12,25 +12,29 @@ public class DialogueSystem : MonoBehaviour {
     DialogueSettings dialogueSettings;
 	void Start ()
     {
-
+        i = 0;
         dialogueSettings = DialogueSettings.Load(textAsset);
-        text_interface.text = dialogueSettings.node[0].text_dialogue;
        
-    }
-
-    void TextShow()
-        {
-            text_interface.text = dialogueSettings.node[i].text_dialogue;
-         
-        }
-   
+    }   
 	
 
-	void Update () {
-        for (i = 0; i < dialogueSettings.node.Length - 1; i++)
+	void Update ()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            Invoke("TextShow", 2);
+            StopAllCoroutines();
+            StartCoroutine(TextShowCorutine(dialogueSettings.node[i].text_dialogue));
+        }
 
+    }
+
+    IEnumerator TextShowCorutine(string dialogue)
+    {
+        text_interface.text = "";
+        foreach (char ch in dialogue.ToCharArray())
+        {       
+            text_interface.text += ch;
+            yield return null;
         }
     }
 

@@ -1,23 +1,26 @@
 <dialogue>
   <node>
-    <text>И чё тебе надо?</text>  
+    <text>Здравствуй</text>
+    <sentence>true</sentence>
   </node>
   <node>
-    <text>Борзый что ли?</text>
+    <text>Как дела?</text>
+    <sentence>false</sentence>
+  </node>
+  <answers>
+    <answer>Всё просто отлично!!!</answer>
+    <answer>Я скоро сдохну</answer>
+  </answers>
+  <node>
+    <text>Мде, это плохо...</text>
+    <sentence>true</sentence>
   </node>
   <node>
-    <text>
-      А ну иди сюда!!!
-    </text>
+    <text>Ну тогда збс</text>
+    <sentence>true</sentence>
   </node>
   <node>
-    <text>
-     Ясно всё с тобой...
-    </text>
-  </node>
-<node>
-    <text>
-     Всё, вали
-    </text>
+    <text>Всё, вали</text>
+    <sentence>true</sentence>
   </node>
 </dialogue>
