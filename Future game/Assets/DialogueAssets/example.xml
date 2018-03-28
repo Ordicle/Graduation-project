@@ -8,8 +8,8 @@
     <sentence>false</sentence>
   </node>
   <answers>
-    <answer>Всё просто отлично!!!</answer>
-    <answer>Я скоро сдохну</answer>
+    <answer tonode="3"><ans_text>Всё просто отлично!!!</ans_text></answer>
+    <answer tonode="4"><ans_text>Я скоро сдохну</ans_text></answer>
   </answers>
   <node>
     <text>Мде, это плохо...</text>

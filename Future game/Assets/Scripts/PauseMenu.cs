@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour {
     private GameObject pausePanel;
     [SerializeField]
     private GameObject person;
-    private FirstPersonController personScript;
+    public FirstPersonController personScript;
     public KeyCode PauseButton;
 
 	

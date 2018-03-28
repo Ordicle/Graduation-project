@@ -20,7 +20,6 @@ public class DialogueSettings {
 
     }
 	
-
 }
 
 [System.Serializable]
@@ -28,4 +27,25 @@ public class Node
 {
     [XmlElement("text")]
     public string text_dialogue;
+
+    [XmlElement("sentence")]
+    public bool IsSentence;
+
+    [XmlArray("answers")]
+    [XmlArrayItem("answer")]
+    public Answer[] answers;
+
 }
+
+[System.Serializable]
+public class Answer
+{
+    [XmlAttribute("tonode")]
+    public int nodeOFvalue;
+
+
+    [XmlElement("text")]
+    public string anstext;
+}
+
+
