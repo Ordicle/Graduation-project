@@ -19,7 +19,6 @@ public class PauseMenu : MonoBehaviour {
         personScript = person.GetComponent<FirstPersonController>();
 	}
 
-
     void Update()
     {
 

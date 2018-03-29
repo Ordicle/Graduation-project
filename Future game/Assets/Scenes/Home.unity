@@ -4437,7 +4437,10 @@ MonoBehaviour:
   press_dialogue: {fileID: 512872474}
   dialogueShow: 101
   raycast: {fileID: 1191695562}
-  textAsset: {fileID: 4900000, guid: 6e60b7934b9a8a740a8fe7c494a6e3d2, type: 3}
+  textAssets:
+  - {fileID: 4900000, guid: 6e60b7934b9a8a740a8fe7c494a6e3d2, type: 3}
+  - {fileID: 4900000, guid: 3897651ac2e0d0d459c9f7f194f8b2fd, type: 3}
+  - {fileID: 4900000, guid: 438973ccbb3d4944db16fd5a76f39643, type: 3}
   text_interface: {fileID: 315421643}
 --- !u!1001 &947644512
 Prefab:
@@ -4602,15 +4605,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -573.1972
+      value: -556.98
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -271.43
+      value: -271.21
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 53.610054
+      value: 53.39
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5037,7 +5040,7 @@ GameObject:
   - component: {fileID: 1124995999}
   - component: {fileID: 1124995998}
   m_Layer: 8
-  m_Name: Human 3
+  m_Name: HumanThree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6746,7 +6749,7 @@ GameObject:
   - component: {fileID: 1461182151}
   - component: {fileID: 1461182150}
   m_Layer: 8
-  m_Name: Human 1
+  m_Name: HumanOne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8561,7 +8564,7 @@ GameObject:
   - component: {fileID: 1870543540}
   - component: {fileID: 1870543539}
   m_Layer: 8
-  m_Name: Human 2
+  m_Name: HumanTwo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

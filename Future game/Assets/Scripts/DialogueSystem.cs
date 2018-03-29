@@ -10,29 +10,50 @@ public class DialogueSystem : MonoBehaviour {
     public KeyCode dialogueShow;
 
     [SerializeField] private GameObject raycast;
-    [SerializeField] private TextAsset textAsset;
+    [SerializeField] private TextAsset[] textAssets;
     [SerializeField] private Text text_interface;
 
-    private Ray ray;
     private int i;
+    private int dialInt;
     private PauseMenu pauseMenu;
 
-    DialogueSettings dialogueSettings;
+    private bool raydialogue;
+
+    DialogueSettings[] dialogueSettings;
+
 	void Start ()
     {
+        dialogueSettings = new DialogueSettings[textAssets.Length];
         press_dialogue.enabled = false;
         text_interface.enabled = false;
         pauseMenu = GetComponent<PauseMenu>();
         i = 0;
-        dialogueSettings = DialogueSettings.Load(textAsset);
-      
+        dialInt = 0;
+        foreach (TextAsset t in textAssets)
+        {
+            dialogueSettings[dialInt] = DialogueSettings.Load(textAssets[dialInt]);
+            dialInt++;
+        }
     }   
 	
+    void FixedUpdate()
+    {
+        if (dialogueSettings.Length != textAssets.Length)
+            Debug.Log("GG");
+        if (Physics.Raycast(raycast.transform.position, Vector3.forward, 4f, 1 << 8))
+        {
+            raydialogue = true;
+        }
+        else
+        {
+            raydialogue = false;
+        }
+    }
 
 	void Update ()
     {
-        ray = new Ray(raycast.transform.position, transform.forward);
-        if (Physics.Raycast(ray, 4f,1 << 8))
+
+        if (raydialogue)
         {
             if (pauseMenu.personScript.enabled)
             {
@@ -43,21 +64,22 @@ public class DialogueSystem : MonoBehaviour {
                 press_dialogue.enabled = false;
             }
             if (Input.GetKeyDown(dialogueShow))
-            {           
+            {
                 pauseMenu.personScript.enabled = false;
                 text_interface.enabled = true;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0;
-                if (dialogueSettings.node[i].IsSentence)
+                if (dialogueSettings[dialInt].node[i].IsSentence)
                 {
                     SkipButton.SetActive(true);
                     StopAllCoroutines();
-                    StartCoroutine(TextShowCorutine(dialogueSettings.node[i].text_dialogue));
+                    StartCoroutine(TextShowCorutine(dialogueSettings[dialInt].node[i].text_dialogue));
                 }
             }
-      
         }
+
+
         else
         {
             press_dialogue.enabled = false;
@@ -68,12 +90,11 @@ public class DialogueSystem : MonoBehaviour {
 
     public void NextSentence()
     {
-        if(i!=dialogueSettings.node.Length - 1)
+        if(i!=dialogueSettings[dialInt].node.Length - 1)
         {
             i++;
         }
-        
-        StartCoroutine(TextShowCorutine(dialogueSettings.node[i].text_dialogue));
+        StartCoroutine(TextShowCorutine(dialogueSettings[dialInt].node[i].text_dialogue));
     }
 
 

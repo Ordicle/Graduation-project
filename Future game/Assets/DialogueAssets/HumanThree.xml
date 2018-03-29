@@ -1,0 +1,38 @@
+<dialogue>
+  <node>
+    <text>Вопрос хочешь задать?</text>
+    <sentence>true</sentence>
+  </node>
+  <node>
+    <text>Или ножь погонять?</text>
+    <sentence>false</sentence>
+  </node>
+  <answers>
+    <answer tonode="3">
+      <ans_text>Вопрос?Да нет</ans_text>
+    </answer>
+    <answer tonode="4">
+      <ans_text>Какой ножь?</ans_text>
+    </answer>
+  </answers>
+  <node>
+    <text>НУ тогда бывай</text>
+    <sentence>true</sentence>
+  </node>
+  <node>
+    <text>И смотри осторожно там...</text>
+    <sentence>true</sentence>
+  </node>
+  <node>
+    <text>ЗДОХНИИИИИ</text>
+    <sentence>true</sentence>
+  </node>
+  <answers>
+    <answer tonode="3">
+      <ans_text>Ладно ладно, я пошёл</ans_text>
+    </answer>
+    <answer tonode="4">
+      <ans_text>ААААА О нет,АААААА ЛАДНО БЕГУ ААААААААА</ans_text>
+    </answer>
+  </answers>
+</dialogue>
