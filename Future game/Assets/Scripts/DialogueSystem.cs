@@ -40,7 +40,7 @@ public class DialogueSystem : MonoBehaviour {
     {
         if (dialogueSettings.Length != textAssets.Length)
             Debug.Log("GG");
-        if (Physics.Raycast(raycast.transform.position, Vector3.forward, 4f, 1 << 8))
+        if (Physics.Raycast(raycast.transform.position, transform.forward, 4f, 1 << 8))
         {
             raydialogue = true;
         }
