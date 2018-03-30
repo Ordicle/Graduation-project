@@ -1,29 +1,17 @@
 fileFormatVersion: 2
-guid: ff476f9921387e2458a255a7a778eb61
-timeCreated: 1522039033
+guid: 655e7b595a6b0a8429034c7109713f53
+timeCreated: 1522430107
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Cube
-    100002: Cube_1
-    100004: Cube_1_2
-    100006: Cube_2
-    100008: //RootNode
-    400000: Cube
-    400002: Cube_1
-    400004: Cube_1_2
-    400006: Cube_2
-    400008: //RootNode
+    100000: //RootNode
+    400000: //RootNode
     2100000: No Name
-    2300000: Cube
-    2300002: Cube_1
-    3300000: Cube
-    3300002: Cube_1
-    4300000: Cube_1
-    4300002: Cube
-    6400000: Cube
-    6400002: Cube_1
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Plane
+    6400000: //RootNode
     9500000: //RootNode
   externalObjects: {}
   materials:
