@@ -20,7 +20,7 @@ public class test : MonoBehaviour {
         {
             if (Physics.Raycast(game.transform.position, Vector3.forward,out hit,20f, 1 << 9))
             {
-                Debug.Log(hit.point);
+                Debug.Log(hit.transform.rotation );
             }
         }
 
