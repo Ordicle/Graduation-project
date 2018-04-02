@@ -21,6 +21,10 @@ public class DialogueSystem : MonoBehaviour {
 
     DialogueSettings[] dialogueSettings;
 
+    void Awake()
+    {
+        Time.timeScale = 1;
+    }
 	void Start ()
     {
         dialogueSettings = new DialogueSettings[textAssets.Length];
