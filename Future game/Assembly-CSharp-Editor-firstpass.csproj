@@ -52,6 +52,9 @@
      <None Include="Assets\DialogueAssets\HumanTwo.xml" />
      <None Include="Assets\DialogueAssets\HumanThree.xml" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
+ <Reference Include="Unity.PackageManager">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PackageManager/Unity/PackageManager/5.5.4/Unity.PackageManager.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
