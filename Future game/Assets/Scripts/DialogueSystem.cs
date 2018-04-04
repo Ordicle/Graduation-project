@@ -12,6 +12,7 @@ public class DialogueSystem : MonoBehaviour {
     [SerializeField] private GameObject raycast;
     [SerializeField] private TextAsset[] textAssets;
     [SerializeField] private Text text_interface;
+    [SerializeField] private GameObject[] buttons;
 
     private int i;
     private int dialInt;
@@ -19,7 +20,7 @@ public class DialogueSystem : MonoBehaviour {
 
     private bool raydialogue;
 
-    DialogueSettings[] dialogueSettings;
+    DialogueSettings dialogueSetting;
 
     void Awake()
     {
@@ -27,23 +28,17 @@ public class DialogueSystem : MonoBehaviour {
     }
 	void Start ()
     {
-        dialogueSettings = new DialogueSettings[textAssets.Length];
         press_dialogue.enabled = false;
         text_interface.enabled = false;
         pauseMenu = GetComponent<PauseMenu>();
         i = 0;
-        dialInt = 0;
-        foreach (TextAsset t in textAssets)
-        {
-            dialogueSettings[dialInt] = DialogueSettings.Load(textAssets[dialInt]);
-            dialInt++;
-        }
+        dialogueSetting = DialogueSettings.Load(textAssets[0]);
+           
+      
     }   
 	
     void FixedUpdate()
     {
-        if (dialogueSettings.Length != textAssets.Length)
-            Debug.Log("GG");
         if (Physics.Raycast(raycast.transform.position, transform.forward, 4f, 1 << 8))
         {
             raydialogue = true;
@@ -74,33 +69,41 @@ public class DialogueSystem : MonoBehaviour {
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0;
-                if (dialogueSettings[dialInt].node[i].IsSentence)
+                if (dialogueSetting.node[i].IsSentence)
                 {
                     SkipButton.SetActive(true);
                     StopAllCoroutines();
-                    StartCoroutine(TextShowCorutine(dialogueSettings[dialInt].node[i].text_dialogue));
+                    StartCoroutine(TextShowCorutine(dialogueSetting.node[i].text_dialogue));
+                }
+                else
+                {
+                    SkipButton.SetActive(false);
+
+                    for(int j = 0; j < dialogueSetting.node[i].answers.Length; j++)
+                    {
+                        buttons[j].SetActive(true);
+                        buttons[j].GetComponentInChildren<Text>().text = dialogueSetting.node[i].answers[j].anstext;
+
+                    }
                 }
             }
         }
-
 
         else
         {
             press_dialogue.enabled = false;
         }
 
-
     }
 
     public void NextSentence()
     {
-        if(i!=dialogueSettings[dialInt].node.Length - 1)
+        if(i!=dialogueSetting.node.Length - 1)
         {
             i++;
         }
-        StartCoroutine(TextShowCorutine(dialogueSettings[dialInt].node[i].text_dialogue));
+        StartCoroutine(TextShowCorutine(dialogueSetting.node[i].text_dialogue));
     }
-
 
     IEnumerator TextShowCorutine(string dialogue)
     {
