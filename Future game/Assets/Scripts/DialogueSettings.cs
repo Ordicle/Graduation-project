@@ -41,7 +41,7 @@ public class Node
 public class Answer
 {
     [XmlAttribute("tonode")]
-    public int nodeOFvalue;
+    public int NValue;
 
 
     [XmlElement("text")]
