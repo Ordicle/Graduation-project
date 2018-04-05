@@ -105,10 +105,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 731
-  m_MinSize: {x: 679, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 681, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
   vertical: 1
-  controlID: 122
+  controlID: 91
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -129,10 +129,10 @@ MonoBehaviour:
     y: 0
     width: 1536
     height: 731
-  m_MinSize: {x: 679, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 681, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 123
+  controlID: 92
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 81
+  controlID: 93
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 37
+  controlID: 13
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -280,8 +280,8 @@ MonoBehaviour:
     y: 0
     width: 310
     height: 731
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -327,19 +327,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scenes
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Acer\Documents\GitHub\Graduation-project\Future game
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 9e290000
-    m_LastClickedID: 10654
-    m_ExpandedIDs: 000000003a29000000ca9a3bffffff7f
+    m_SelectedIDs: 40300000
+    m_LastClickedID: 12352
+    m_ExpandedIDs: 000000004030000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -367,7 +367,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003a290000
+    m_ExpandedIDs: 0000000040300000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -603,9 +603,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 108.329796, y: -10.49589, z: 54.922935}
+    m_Target: {x: 28.926306, y: -3.67865, z: 87.10656}
     speed: 2
-    m_Value: {x: 108.329796, y: -10.49589, z: 54.922935}
+    m_Value: {x: 28.926306, y: -3.67865, z: 87.10656}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -629,13 +629,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.09504869, y: 0.69383854, z: -0.09318369, w: 0.7077221}
+    m_Target: {x: 0.3264363, y: -0.17996944, z: 0.06346021, w: 0.92575544}
     speed: 2
-    m_Value: {x: 0.095048696, y: 0.6938386, z: -0.093183696, w: 0.7077222}
+    m_Value: {x: 0.3264363, y: -0.17996944, z: 0.06346021, w: 0.92575544}
   m_Size:
-    m_Target: 257.5678
+    m_Target: 188.84816
     speed: 2
-    m_Value: 257.5678
+    m_Value: 188.84816
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -676,9 +676,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 902a0000
+    m_SelectedIDs: e6300000
     m_LastClickedID: 0
-    m_ExpandedIDs: 32e6ffff78fbffff00000000
+    m_ExpandedIDs: 6c33ffff2ca8ffffa8caffff6cd2ffff00000000bc350000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
