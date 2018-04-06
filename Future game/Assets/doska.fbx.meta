@@ -1,29 +1,42 @@
 fileFormatVersion: 2
-guid: 93121a1b1d4d6b341a6f0a272e2903b8
-timeCreated: 1522726013
+guid: 474598323f8822b4fb1788b5f5e2cdd1
+timeCreated: 1522989486
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: Cube
     100002: Cube_2
-    100004: Cube_3
-    100006: //RootNode
-    100008: Symmetry
+    100004: Cube_2_2
+    100006: Cube_2_3
+    100008: Cube_3
+    100010: //RootNode
     400000: Cube
     400002: Cube_2
-    400004: Cube_3
-    400006: //RootNode
-    400008: Symmetry
+    400004: Cube_2_2
+    400006: Cube_2_3
+    400008: Cube_3
+    400010: //RootNode
     2100000: No Name
+    2100002: Mat
     2300000: Cube
     2300002: Cube_2
+    2300004: Cube_2_2
+    2300006: Cube_2_3
+    2300008: Cube_3
+    2300010: //RootNode
     3300000: Cube
     3300002: Cube_2
-    4300000: Cube
+    3300004: Cube_2_2
+    3300006: Cube_2_3
+    3300008: Cube_3
+    3300010: //RootNode
+    4300000: Cube_1
     4300002: Cube_2
-    6400000: Cube
-    6400002: Cube_2
+    4300004: Cube_2_2
+    4300006: Cube
+    4300008: Cube_2_3
+    4300010: Cube_3
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -57,7 +70,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
