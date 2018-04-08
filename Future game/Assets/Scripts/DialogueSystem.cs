@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour {
 
+
     public GameObject SkipButton;
     public Text press_dialogue;
     public KeyCode dialogueShow;
@@ -21,6 +22,7 @@ public class DialogueSystem : MonoBehaviour {
     private bool raydialogue;
 
     DialogueSettings dialogueSetting;
+    RaycastHit hit;
 
     void Awake()
     {
@@ -28,6 +30,10 @@ public class DialogueSystem : MonoBehaviour {
     }
 	void Start ()
     {
+        for(int k = 0; k < buttons.Length; k++)
+        {
+            buttons[k].SetActive(false);
+        }
         press_dialogue.enabled = false;
         text_interface.enabled = false;
         pauseMenu = GetComponent<PauseMenu>();
@@ -39,7 +45,7 @@ public class DialogueSystem : MonoBehaviour {
 	
     void FixedUpdate()
     {
-        if (Physics.Raycast(raycast.transform.position, transform.forward, 4f, 1 << 8))
+        if (Physics.Raycast(raycast.transform.position, raycast.transform.forward, 4f, 1 << 8))
         {
             raydialogue = true;
         }
@@ -71,6 +77,9 @@ public class DialogueSystem : MonoBehaviour {
                 Time.timeScale = 0;
                 if (dialogueSetting.node[i].IsSentence)
                 {
+                    for (int k = 0; k < buttons.Length; k++)
+                        buttons[k].SetActive(false);
+
                     SkipButton.SetActive(true);
                     StopAllCoroutines();
                     StartCoroutine(TextShowCorutine(dialogueSetting.node[i].text_dialogue));
@@ -82,8 +91,9 @@ public class DialogueSystem : MonoBehaviour {
                     for(int j = 0; j < dialogueSetting.node[i].answers.Length; j++)
                     {
                         buttons[j].SetActive(true);
+                        buttons[j].GetComponent<ButtonManager>().end = "";
                         buttons[j].GetComponentInChildren<Text>().text = dialogueSetting.node[i].answers[j].anstext;
-
+                        buttons[j].GetComponent<ButtonManager>().curI = dialogueSetting.node[i].answers[j].NValue;        
                     }
                 }
             }
@@ -96,14 +106,34 @@ public class DialogueSystem : MonoBehaviour {
 
     }
 
-    public void NextSentence()
+    public void NextB()
     {
-        if(i!=dialogueSetting.node.Length - 1)
-        {
-            i++;
-        }
-        StartCoroutine(TextShowCorutine(dialogueSetting.node[i].text_dialogue));
+        NextMethod(0, "");
     }
+
+    public void NextMethod(int nexNode,string end)
+    {
+        if (i < dialogueSetting.node.Length - 1)
+        {
+            if (dialogueSetting.node[i].IsSentence)
+                i++;
+            else
+            {
+             if(end != "true")
+             {
+                i = nexNode;
+             }
+             else
+             {
+                Debug.Log("FF");
+             }
+            }
+
+            StartCoroutine(TextShowCorutine(dialogueSetting.node[i].text_dialogue));
+        }
+    } 
+
+
 
     IEnumerator TextShowCorutine(string dialogue)
     {
