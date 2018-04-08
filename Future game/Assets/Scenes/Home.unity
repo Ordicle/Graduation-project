@@ -3850,7 +3850,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -414.09
+      value: -329.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -6057,6 +6057,10 @@ Prefab:
       propertyPath: m_InflateMesh
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 1b42a0d429b2f6542bee3beee59e3f37, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9f70eaf60dd1ea04a96d6b79bfc1451e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b42a0d429b2f6542bee3beee59e3f37, type: 3}
   m_IsPrefabParent: 0
