@@ -5,24 +5,27 @@ using UnityEngine;
 public class test : MonoBehaviour {
 
 
+
     public KeyCode key;
    [SerializeField] private GameObject game;
 
+
 	void Start () {
-		
+      
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
         RaycastHit hit;
-        if (Input.GetKeyDown(key))
+        if (Input.GetKey(key))
         {
-            if (Physics.Raycast(game.transform.position, Vector3.forward,out hit,20f, 1 << 9))
+            if (Physics.Raycast(game.transform.position, game.transform.forward ,out hit,20f, 1 << 9))
             {
-                Debug.Log(hit.transform.rotation );
+                hit.rigidbody.transform.Rotate(45, 10, 0);         
             }
-        }
+        }      
 
-	}
+
+    }
 }
