@@ -8,7 +8,7 @@
     <sentence>false</sentence>
   </node>
   <answers>
-    <answer tonode="3"><ans_text>Всё просто отлично!!!</ans_text></answer>
+    <answer tonode="2"><ans_text>Всё просто отлично!!!</ans_text></answer>
     <answer tonode="4"><ans_text>Я скоро сдохну</ans_text></answer>
   </answers>
   <node>
@@ -17,6 +17,7 @@
   </node>
   <node>
     <text>И чё дальше?</text>
+    <sentence>false</sentence>
   </node>
   <answers>
     <answer tonode="0">
