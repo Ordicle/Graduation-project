@@ -4274,6 +4274,7 @@ MonoBehaviour:
   key: 99
   tp: 9
   game: {fileID: 1093542857}
+  up: 10
 --- !u!1001 &947644512
 Prefab:
   m_ObjectHideFlags: 0
@@ -6558,15 +6559,15 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 9f70eaf60dd1ea04a96d6b79bfc1451e, type: 2}
     - target: {fileID: 400002, guid: 1b42a0d429b2f6542bee3beee59e3f37, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 1b42a0d429b2f6542bee3beee59e3f37, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 1b42a0d429b2f6542bee3beee59e3f37, type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 1b42a0d429b2f6542bee3beee59e3f37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
