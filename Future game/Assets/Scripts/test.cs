@@ -33,7 +33,15 @@ public class test : MonoBehaviour
         }
         if (Input.GetKey(tp))
         {
-            game.transform.position = new Vector3(game.transform.position.x, game.transform.position.y +up, game.transform.position.z);
+            if (Input.GetKey(KeyCode.W))
+            {
+                float rrr = Physics.Raycast(game.transform.position, game.transform.forward, out hit);
+                game.transform.position = new Vector3(game.transform.position.x + rrr, game.transform.position.y, game.transform.position.z);
+            }
+            else
+            {
+                game.transform.position = new Vector3(game.transform.position.x, game.transform.position.y + up, game.transform.position.z);
+            }
         }
     }
 }
