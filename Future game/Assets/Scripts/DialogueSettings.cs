@@ -7,6 +7,8 @@ using UnityEngine;
 [XmlRoot("dialogue")]
 public class DialogueSettings {
 
+   
+
     [XmlElement("node")]
    public Node[] node;
 
