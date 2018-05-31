@@ -5325,6 +5325,7 @@ GameObject:
   - component: {fileID: 1070231610}
   - component: {fileID: 1070231609}
   - component: {fileID: 1070231611}
+  - component: {fileID: 1070231612}
   m_Layer: 0
   m_Name: CommentOfObjects
   m_TagString: Untagged
@@ -5373,6 +5374,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FPS: {fileID: 1093542857}
   key: 114
+--- !u!114 &1070231612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1070231608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae0927df217de0459826dcad2c958ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 885362839}
+  key: 122
+  game: {fileID: 1093542857}
 --- !u!1 &1093542857 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
