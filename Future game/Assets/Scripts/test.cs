@@ -33,7 +33,14 @@ public class test : MonoBehaviour
         }
         if (Input.GetKey(tp))
         {
-            game.transform.position = new Vector3(game.transform.position.x, game.transform.position.y +up, game.transform.position.z);
+            if (Input.GetKey(KeyCode.W))
+            {
+                game.transform.position = new Vector3(game.transform.position.x + up, game.transform.position.y, game.transform.position.z);
+            }
+            else
+            {
+                game.transform.position = new Vector3(game.transform.position.x, game.transform.position.y + up, game.transform.position.z);
+            }
         }
     }
 }
