@@ -77,7 +77,6 @@ public class DialogueSystem : MonoBehaviour {
                 text_interface.enabled = true;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
-                Time.timeScale = 0;
                 if (dialogueSetting.node[i].IsSentence)
                 {
 
@@ -106,7 +105,7 @@ public class DialogueSystem : MonoBehaviour {
         }
 
         else
-        {
+        { 
             press_dialogue.enabled = false;
         }
 
@@ -114,41 +113,54 @@ public class DialogueSystem : MonoBehaviour {
 
     public void NextMethod(int nexNode,string end)
     {
+        
+
         if (i < dialogueSetting.node.Length)
         {
+            i++;
+
             if (dialogueSetting.node[i].IsSentence)
             {
-                i++;
+                
 
                 for (int k = 0; k < buttons.Length; k++)
                 {
                     buttons[k].SetActive(false);
                 }
 
-                SkipButton.SetActive(true);
-               
+                SkipButton.SetActive(true);             
+
             }
                 
             else
             {
-                StopAllCoroutines();
-                StartCoroutine(TextShowCorutine(dialogueSetting.node[i].text_dialogue));
+                
 
-                SkipButton.SetActive(false);
+               SkipButton.SetActive(false);
 
                for (int j = 0; j < dialogueSetting.node[i].answers.Length; j++)
-                 {
+               {
                      buttons[j].SetActive(true);
                      buttons[j].GetComponent<ButtonManager>().end = "";
                      buttons[j].GetComponentInChildren<Text>().text = dialogueSetting.node[i].answers[j].anstext;
                      buttons[j].GetComponent<ButtonManager>().curI = dialogueSetting.node[i].answers[j].NValue;
-                 }
+               }
 
                 i = nexNode;
-               } 
+            }
 
             StopAllCoroutines();
             StartCoroutine(TextShowCorutine(dialogueSetting.node[i].text_dialogue));
+
+        }
+
+        else
+        {
+            IsDialShow = false;
+            pauseMenu.personScript.enabled = true;
+            text_interface.enabled = false;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 
