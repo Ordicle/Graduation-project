@@ -53,7 +53,7 @@
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\WorkStation.cs" />
-    <Compile Include="Assets\Scripts\door.cs" />
+    <Compile Include="Assets\Scripts\info.cs" />
     <Compile Include="Assets\Scripts\test.cs" />
     <None Include="Assets\DialogueAssets\HumanOne.xml">
       <SubType>Designer</SubType>

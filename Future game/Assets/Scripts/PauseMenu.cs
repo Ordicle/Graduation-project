@@ -32,7 +32,7 @@ public class PauseMenu : MonoBehaviour {
             IsPausePanel = true;
         }
 
-        else if (Input.GetKeyDown(PauseButton) && IsPausePanel)
+       else if (Input.GetKeyDown(PauseButton) && IsPausePanel)
         {
             IsPausePanel = false;
             pausePanel.SetActive(false);
