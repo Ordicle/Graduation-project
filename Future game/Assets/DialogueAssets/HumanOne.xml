@@ -5,28 +5,30 @@
   </node>
   <node>
     <text>Как дела?</text>
-    <sentence>false</sentence>
+    <answers>
+      <answer tonode="2">
+        <ans_text>Всё просто отлично!!!</ans_text>
+      </answer>
+      <answer tonode="4">
+        <ans_text>Я скоро сдохну</ans_text>
+      </answer>
+    </answers>
   </node>
-  <answers>
-    <answer tonode="2"><ans_text>Всё просто отлично!!!</ans_text></answer>
-    <answer tonode="4"><ans_text>Я скоро сдохну</ans_text></answer>
-  </answers>
   <node>
     <text>Мде, это плохо...</text>
     <sentence>true</sentence>
   </node>
   <node>
     <text>И чё дальше?</text>
-    <sentence>false</sentence>
-  </node>
-  <answers>
-    <answer tonode="0">
-      <ans_text>Да не чё я так... просто...Давай пока</ans_text>
-    </answer>
-    <answer tonode="0">
-      <ans_text>А то и дальше, всё я пошёл</ans_text>
-    </answer>
-  </answers>
+    <answers>
+      <answer tonode="0">
+        <ans_text>Да не чё я так... просто...Давай пока</ans_text>
+      </answer>
+      <answer tonode="0">
+        <ans_text>А то и дальше, всё я пошёл</ans_text>
+      </answer>
+    </answers>
+  </node> 
   <node>
     <text>Ну тогда збс</text>
     <sentence>true</sentence>

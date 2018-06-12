@@ -13,8 +13,8 @@ public class ButtonManager : MonoBehaviour {
         ds = GetComponentInParent<DialogueSystem>();
 	}
 
-	void Update ()
+	public void _next()
     {
         ds.NextMethod(curI, end);
-    }
+    }   
 }

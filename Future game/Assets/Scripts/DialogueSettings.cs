@@ -46,8 +46,9 @@ public class Answer
     public int NValue;
 
 
-    [XmlElement("text")]
+    [XmlElement("ans_text")]
     public string anstext;
+
 }
 
 

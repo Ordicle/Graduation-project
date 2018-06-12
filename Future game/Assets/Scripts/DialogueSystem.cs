@@ -15,21 +15,24 @@ public class DialogueSystem : MonoBehaviour {
     [SerializeField] private Text text_interface;
     [SerializeField] private GameObject[] buttons;
 
-    private int i;
+    private int i = 0;
     private int dialInt;
     private PauseMenu pauseMenu;
 
+    private bool IsDialShow;
     private bool raydialogue;
 
     DialogueSettings dialogueSetting;
     RaycastHit hit;
 
+
     void Awake()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
     }
 	void Start ()
     {
+
         for(int k = 0; k < buttons.Length; k++)
         {
             buttons[k].SetActive(false);
@@ -37,7 +40,6 @@ public class DialogueSystem : MonoBehaviour {
         press_dialogue.enabled = false;
         text_interface.enabled = false;
         pauseMenu = GetComponent<PauseMenu>();
-        i = 0;
         dialogueSetting = DialogueSettings.Load(textAssets[0]);
            
       
@@ -45,7 +47,7 @@ public class DialogueSystem : MonoBehaviour {
 	
     void FixedUpdate()
     {
-        if (Physics.Raycast(raycast.transform.position, raycast.transform.forward, 4f, 1 << 8))
+        if (Physics.Raycast(raycast.transform.position, raycast.transform.forward, out hit, 4f, 1 << 8))
         {
             raydialogue = true;
         }
@@ -68,8 +70,9 @@ public class DialogueSystem : MonoBehaviour {
             {
                 press_dialogue.enabled = false;
             }
-            if (Input.GetKeyDown(dialogueShow))
+            if (Input.GetKeyDown(dialogueShow) && !IsDialShow)
             {
+                IsDialShow = true;
                 pauseMenu.personScript.enabled = false;
                 text_interface.enabled = true;
                 Cursor.visible = true;
@@ -77,8 +80,11 @@ public class DialogueSystem : MonoBehaviour {
                 Time.timeScale = 0;
                 if (dialogueSetting.node[i].IsSentence)
                 {
+
                     for (int k = 0; k < buttons.Length; k++)
+                    {
                         buttons[k].SetActive(false);
+                    }
 
                     SkipButton.SetActive(true);
                     StopAllCoroutines();
@@ -106,34 +112,50 @@ public class DialogueSystem : MonoBehaviour {
 
     }
 
+    public void NextMethod(int nexNode,string end)
+    {
+        if (i < dialogueSetting.node.Length)
+        {
+            if (dialogueSetting.node[i].IsSentence)
+            {
+                i++;
+
+                for (int k = 0; k < buttons.Length; k++)
+                {
+                    buttons[k].SetActive(false);
+                }
+
+                SkipButton.SetActive(true);
+               
+            }
+                
+            else
+            {
+                StopAllCoroutines();
+                StartCoroutine(TextShowCorutine(dialogueSetting.node[i].text_dialogue));
+
+                SkipButton.SetActive(false);
+
+               for (int j = 0; j < dialogueSetting.node[i].answers.Length; j++)
+                 {
+                     buttons[j].SetActive(true);
+                     buttons[j].GetComponent<ButtonManager>().end = "";
+                     buttons[j].GetComponentInChildren<Text>().text = dialogueSetting.node[i].answers[j].anstext;
+                     buttons[j].GetComponent<ButtonManager>().curI = dialogueSetting.node[i].answers[j].NValue;
+                 }
+
+                i = nexNode;
+               } 
+
+            StopAllCoroutines();
+            StartCoroutine(TextShowCorutine(dialogueSetting.node[i].text_dialogue));
+        }
+    }
+
     public void NextB()
     {
         NextMethod(0, "");
     }
-
-    public void NextMethod(int nexNode,string end)
-    {
-        if (i < dialogueSetting.node.Length - 1)
-        {
-            if (dialogueSetting.node[i].IsSentence)
-                i++;
-            else
-            {
-             if(end != "true")
-             {
-                i = nexNode;
-             }
-             else
-             {
-                Debug.Log("FF");
-             }
-            }
-
-            StartCoroutine(TextShowCorutine(dialogueSetting.node[i].text_dialogue));
-        }
-    } 
-
-
 
     IEnumerator TextShowCorutine(string dialogue)
     {
