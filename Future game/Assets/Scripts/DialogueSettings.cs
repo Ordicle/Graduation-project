@@ -49,6 +49,8 @@ public class Answer
     [XmlElement("ans_text")]
     public string anstext;
 
+    [XmlElement("SelectAns")]
+    public string SelectAns;
 }
 
 
