@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
 
+    [SerializeField]
+    private GameObject DialoguePanel;
     private bool IsPausePanel = false;
     [SerializeField]
     private GameObject pausePanel;
@@ -24,6 +26,8 @@ public class PauseMenu : MonoBehaviour {
 
         if (Input.GetKeyDown(PauseButton) && !IsPausePanel)
         {
+            if (DialogueSystem.IsDialShow)
+                DialoguePanel.SetActive(false);
             pausePanel.SetActive(true);
             personScript.enabled = false;
             Cursor.visible = true;
@@ -32,24 +36,19 @@ public class PauseMenu : MonoBehaviour {
             IsPausePanel = true;
         }
 
-       else if (Input.GetKeyDown(PauseButton) && IsPausePanel)
+        else if (Input.GetKeyDown(PauseButton) && IsPausePanel)
         {
-            IsPausePanel = false;
-            pausePanel.SetActive(false);
-            personScript.enabled = true;
-            Time.timeScale = 1;
-        }
+            ContinueGame();
+        }   
+     
     }
 
-        public void Continue()
+    public void Continue()
     {
-        IsPausePanel = false;
-        pausePanel.SetActive(false);
-        personScript.enabled = true;
-        Time.timeScale = 1;
+        ContinueGame();
     }
 
-         public void Menu()
+    public void Menu()
     {
         IsPausePanel = false;
         pausePanel.SetActive(false);
@@ -58,9 +57,28 @@ public class PauseMenu : MonoBehaviour {
         SceneManager.LoadScene(0);
     }
 
-         public void Quit()
+    public void Quit()
     {
         Application.Quit();
-    } 
-   
+    }
+
+    void ContinueGame()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        IsPausePanel = false;
+        pausePanel.SetActive(false);
+        if (!DialogueSystem.IsDialShow)
+        {
+            DialoguePanel.SetActive(false);
+            personScript.enabled = true;
+        }
+        else
+        {
+            DialoguePanel.SetActive(true);
+            personScript.enabled = false;
+        }
+
+        Time.timeScale = 1;
+    }
 }

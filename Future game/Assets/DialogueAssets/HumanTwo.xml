@@ -5,16 +5,17 @@
   </node>
   <node>
     <text>И чё тебе надо?</text>
-    <sentence>false</sentence>
+    <answers>
+      <answer tonode="3">
+        <ans_text>Да так, ничего</ans_text>
+        <SelectAns></SelectAns>
+      </answer>
+      <answer tonode="4">
+        <ans_text>Я бы хотел...</ans_text>
+        <SelectAns></SelectAns>
+      </answer>
+    </answers>
   </node>
-  <answers>
-    <answer tonode="3">
-      <ans_text>Да так, ничего</ans_text>
-    </answer>
-    <answer tonode="4">
-      <ans_text>Я бы хотел...</ans_text>
-    </answer>
-  </answers>
   <node>
     <text>Ну тогда сваливай</text>
     <sentence>true</sentence>

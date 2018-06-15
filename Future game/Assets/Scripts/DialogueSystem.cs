@@ -5,50 +5,58 @@ using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour {
 
-
+    [SerializeField]
+    private GameObject DialoguePanel;
     public GameObject SkipButton;
     public Text press_dialogue;
     public KeyCode dialogueShow;
 
     [SerializeField] private GameObject raycast;
-    [SerializeField] private TextAsset[] textAssets;
     [SerializeField] private Text text_interface;
     [SerializeField] private GameObject[] buttons;
 
-    private int i = 0;
+    [HideInInspector]
+    public int i = 0;
     private int dialInt;
     private PauseMenu pauseMenu;
 
-    private bool IsDialShow;
+    [HideInInspector]
+    public static bool IsDialShow;
     private bool raydialogue;
 
-    DialogueSettings dialogueSetting;
+
+    public List<DialogueAsset> AssetHuman;
+
+    [HideInInspector]
+    public DialogueSettings dialogueSetting;
     RaycastHit hit;
 
+    private int NumAsset;
 
     void Awake()
     {
-        //Time.timeScale = 1;
+        Time.timeScale = 1;
     }
 	void Start ()
     {
 
-        for(int k = 0; k < buttons.Length; k++)
+        DialoguePanel.SetActive(false);
+
+        for (int k = 0; k < buttons.Length; k++)
         {
             buttons[k].SetActive(false);
         }
+
         press_dialogue.enabled = false;
         text_interface.enabled = false;
         pauseMenu = GetComponent<PauseMenu>();
-        dialogueSetting = DialogueSettings.Load(textAssets[0]);
-           
-      
+
     }   
 	
     void FixedUpdate()
     {
         if (Physics.Raycast(raycast.transform.position, raycast.transform.forward, out hit, 4f, 1 << 8))
-        {
+        {            
             raydialogue = true;
         }
         else
@@ -72,6 +80,19 @@ public class DialogueSystem : MonoBehaviour {
             }
             if (Input.GetKeyDown(dialogueShow) && !IsDialShow)
             {
+                DialoguePanel.SetActive(true);
+
+                for (int n = 0; n < AssetHuman.Count; n++)
+                {
+                   if (hit.collider.name == AssetHuman[n].NameHuman)
+                    {
+                        NumAsset = n;
+                        dialogueSetting = DialogueSettings.Load(AssetHuman[n].asset);
+                    }
+                }
+
+                i = AssetHuman[NumAsset].CurNode;
+
                 IsDialShow = true;
                 pauseMenu.personScript.enabled = false;
                 text_interface.enabled = true;
@@ -98,7 +119,8 @@ public class DialogueSystem : MonoBehaviour {
                         buttons[j].SetActive(true);
                         buttons[j].GetComponent<ButtonManager>().end = "";
                         buttons[j].GetComponentInChildren<Text>().text = dialogueSetting.node[i].answers[j].anstext;
-                        buttons[j].GetComponent<ButtonManager>().curI = dialogueSetting.node[i].answers[j].NValue;        
+                        buttons[j].GetComponent<ButtonManager>().curI = dialogueSetting.node[i].answers[j].NValue;
+                        buttons[j].GetComponent<ButtonManager>().NumButton = j;
                     }
                 }
             }
@@ -108,45 +130,44 @@ public class DialogueSystem : MonoBehaviour {
         { 
             press_dialogue.enabled = false;
         }
-
+        
     }
 
     public void NextMethod(int nexNode,string end)
-    {
-        
-
-        if (i < dialogueSetting.node.Length)
+    {      
+        if (i < dialogueSetting.node.Length - 1)
         {
             i++;
+
+            if (SaveInfo.IsClickAnswer)
+                i = nexNode;
 
             if (dialogueSetting.node[i].IsSentence)
             {
                 
-
                 for (int k = 0; k < buttons.Length; k++)
-                {
-                    buttons[k].SetActive(false);
-                }
+                 {
+                     buttons[k].SetActive(false);
+                 }
 
-                SkipButton.SetActive(true);             
-
+                 SkipButton.SetActive(true);
+                   
             }
-                
+
             else
             {
-                
 
-               SkipButton.SetActive(false);
+                SkipButton.SetActive(false);
 
-               for (int j = 0; j < dialogueSetting.node[i].answers.Length; j++)
-               {
-                     buttons[j].SetActive(true);
-                     buttons[j].GetComponent<ButtonManager>().end = "";
-                     buttons[j].GetComponentInChildren<Text>().text = dialogueSetting.node[i].answers[j].anstext;
-                     buttons[j].GetComponent<ButtonManager>().curI = dialogueSetting.node[i].answers[j].NValue;
-               }
+                for (int j = 0; j < dialogueSetting.node[i].answers.Length; j++)
+                {
+                    buttons[j].SetActive(true);
+                    buttons[j].GetComponent<ButtonManager>().end = "";
+                    buttons[j].GetComponentInChildren<Text>().text = dialogueSetting.node[i].answers[j].anstext;
+                    buttons[j].GetComponent<ButtonManager>().curI = dialogueSetting.node[i].answers[j].NValue;
+                    buttons[j].GetComponent<ButtonManager>().NumButton = j;
+                }             
 
-                i = nexNode;
             }
 
             StopAllCoroutines();
@@ -161,12 +182,19 @@ public class DialogueSystem : MonoBehaviour {
             text_interface.enabled = false;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
+            SkipButton.SetActive(!SkipButton.activeSelf);
+            DialoguePanel.SetActive(false);
         }
+
+        AssetHuman[NumAsset].CurNode = i;
+
     }
 
     public void NextB()
     {
+        SaveInfo.IsClickAnswer = false;
         NextMethod(0, "");
+        
     }
 
     IEnumerator TextShowCorutine(string dialogue)
