@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class test : MonoBehaviour
 {
-
-
 
     public KeyCode key;
     public KeyCode tp;

@@ -12,14 +12,12 @@ public class ButtonManager : MonoBehaviour {
     public string end;
     private DialogueSystem ds;
 
-
-
     void Start ()
     {
         ds = GetComponentInParent<DialogueSystem>();
 	}
 
-	public void _next()
+   public  void _next()
     {
         ds.dialogueSetting.node[ds.i].answers[NumButton].SelectAns = "true";
         SaveInfo.IsClickAnswer = true;

@@ -10,10 +10,11 @@ public class DialogueSystem : MonoBehaviour {
     public GameObject SkipButton;
     public Text press_dialogue;
     public KeyCode dialogueShow;
+    public KeyCode InpNextBtn;
 
+    [SerializeField] private GameObject AnswerTable;
     [SerializeField] private GameObject raycast;
     [SerializeField] private Text text_interface;
-    [SerializeField] private GameObject[] buttons;
 
     [HideInInspector]
     public int i = 0;
@@ -24,14 +25,18 @@ public class DialogueSystem : MonoBehaviour {
     public static bool IsDialShow;
     private bool raydialogue;
 
+    private Text SkipBtnText;
 
     public List<DialogueAsset> AssetHuman;
 
     [HideInInspector]
     public DialogueSettings dialogueSetting;
     RaycastHit hit;
+    public GameObject AnsContent;
 
     private int NumAsset;
+
+    private CreateAnswers createAnswers;
 
     void Awake()
     {
@@ -39,17 +44,15 @@ public class DialogueSystem : MonoBehaviour {
     }
 	void Start ()
     {
-
+        SkipBtnText = SkipButton.GetComponentInChildren<Text>();
+        AnswerTable.SetActive(false);
+        createAnswers = AnsContent.GetComponent<CreateAnswers>();
         DialoguePanel.SetActive(false);
-
-        for (int k = 0; k < buttons.Length; k++)
-        {
-            buttons[k].SetActive(false);
-        }
-
         press_dialogue.enabled = false;
         text_interface.enabled = false;
         pauseMenu = GetComponent<PauseMenu>();
+            
+        SkipBtnText.text = $"Next[{InpNextBtn}]";
 
     }   
 	
@@ -57,6 +60,7 @@ public class DialogueSystem : MonoBehaviour {
     {
         if (Physics.Raycast(raycast.transform.position, raycast.transform.forward, out hit, 4f, 1 << 8))
         {            
+            //if(hit.collider.gameObject.layer == LayerMask.NameToLayer("sfsgs"))
             raydialogue = true;
         }
         else
@@ -98,30 +102,19 @@ public class DialogueSystem : MonoBehaviour {
                 text_interface.enabled = true;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+
                 if (dialogueSetting.node[i].IsSentence)
                 {
-
-                    for (int k = 0; k < buttons.Length; k++)
-                    {
-                        buttons[k].SetActive(false);
-                    }
-
+                    AnswerTable.SetActive(false);
                     SkipButton.SetActive(true);
                     StopAllCoroutines();
                     StartCoroutine(TextShowCorutine(dialogueSetting.node[i].text_dialogue));
                 }
                 else
                 {
+                    AnswerTable.SetActive(true);
                     SkipButton.SetActive(false);
-
-                    for(int j = 0; j < dialogueSetting.node[i].answers.Length; j++)
-                    {
-                        buttons[j].SetActive(true);
-                        buttons[j].GetComponent<ButtonManager>().end = "";
-                        buttons[j].GetComponentInChildren<Text>().text = dialogueSetting.node[i].answers[j].anstext;
-                        buttons[j].GetComponent<ButtonManager>().curI = dialogueSetting.node[i].answers[j].NValue;
-                        buttons[j].GetComponent<ButtonManager>().NumButton = j;
-                    }
+                    createAnswers.ShowAnswer();
                 }
             }
         }
@@ -131,6 +124,10 @@ public class DialogueSystem : MonoBehaviour {
             press_dialogue.enabled = false;
         }
         
+        if(SkipButton.activeSelf && Input.GetKeyDown(InpNextBtn))
+        {
+            NextB();
+        }
     }
 
     public void NextMethod(int nexNode,string end)
@@ -144,30 +141,16 @@ public class DialogueSystem : MonoBehaviour {
 
             if (dialogueSetting.node[i].IsSentence)
             {
-                
-                for (int k = 0; k < buttons.Length; k++)
-                 {
-                     buttons[k].SetActive(false);
-                 }
-
-                 SkipButton.SetActive(true);
-                   
+                AnswerTable.SetActive(false);
+                SkipButton.SetActive(true);      
             }
 
             else
             {
-
+                AnswerTable.SetActive(false); // <-- не трогать это
+                AnswerTable.SetActive(true);
                 SkipButton.SetActive(false);
-
-                for (int j = 0; j < dialogueSetting.node[i].answers.Length; j++)
-                {
-                    buttons[j].SetActive(true);
-                    buttons[j].GetComponent<ButtonManager>().end = "";
-                    buttons[j].GetComponentInChildren<Text>().text = dialogueSetting.node[i].answers[j].anstext;
-                    buttons[j].GetComponent<ButtonManager>().curI = dialogueSetting.node[i].answers[j].NValue;
-                    buttons[j].GetComponent<ButtonManager>().NumButton = j;
-                }             
-
+                createAnswers.ShowAnswer();
             }
 
             StopAllCoroutines();

@@ -23,7 +23,6 @@ public class PauseMenu : MonoBehaviour {
 
     void Update()
     {
-
         if (Input.GetKeyDown(PauseButton) && !IsPausePanel)
         {
             if (DialogueSystem.IsDialShow)
@@ -63,22 +62,23 @@ public class PauseMenu : MonoBehaviour {
     }
 
     void ContinueGame()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
+    {       
         IsPausePanel = false;
         pausePanel.SetActive(false);
         if (!DialogueSystem.IsDialShow)
         {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = false;
             DialoguePanel.SetActive(false);
             personScript.enabled = true;
         }
         else
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             DialoguePanel.SetActive(true);
             personScript.enabled = false;
         }
-
         Time.timeScale = 1;
     }
 }

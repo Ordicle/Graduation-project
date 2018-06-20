@@ -14,6 +14,26 @@
         <ans_text>Я скоро сдохну</ans_text>
         <SelectAns></SelectAns>
       </answer>
+      <answer tonode="3">
+        <ans_text>Я скоро  не сдохну rg wrg rwgwrg wg wg wgw grw gr wg rw grw g fffddddddddddddddddddddddddddddf gr rwg wg </ans_text>
+        <SelectAns></SelectAns>
+      </answer>
+      <answer tonode="0">
+        <ans_text>fsfsfs</ans_text>
+        <SelectAns></SelectAns>
+      </answer>
+      <answer tonode="5">
+        <ans_text>fsfsfs</ans_text>
+        <SelectAns></SelectAns>
+      </answer>
+      <answer tonode="1">
+        <ans_text>egwqqqqgggggggggggggggggggggggggggggggggggggggggggggggggggggggggwrrrrrrrrrrrrrrrrrvsrgvrsgvsegrvsevvvvvvvvvvvvvvvvvvvvvsergvsrvsggggsevgs</ans_text>
+        <SelectAns></SelectAns>
+      </answer>
+      <answer tonode="1">
+        <ans_text>egwqqqqggggggggggggggggggggggggggggggwrtwrtwtrwrwtgg gg rrrrrrvsrgvrsgvsegrvsevvvvvvvvvvvvvvvvvvvvvsergvsrvsggggsevgs</ans_text>
+        <SelectAns></SelectAns>
+      </answer>
     </answers>
   </node>
   <node>
