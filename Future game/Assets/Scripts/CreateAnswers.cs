@@ -6,24 +6,17 @@ using UnityEngine.UI;
 public class CreateAnswers : MonoBehaviour {
 
     [SerializeField]
-    private GameObject ScrollView;
-    private ScrollRect scrollRect;
-    [SerializeField]
     private Text AnswerText;
     private Text[] AnsArray;
     DialogueSystem ds;
-    private RectTransform RectScrollView;
-    private bool IsScrolling;
-    private Vector3 vectorsmoothpanel;
+    [Range(0,60)]
     [SerializeField]
-    [Range(0, 10)]
-    private float smoothSpeedScroll;
+    private float GabBetweenPrefabs;
+    private RectTransform RectScrollView;
 
 
     void Awake () {
 
-        RectScrollView = GetComponent<RectTransform>();
-        scrollRect = ScrollView.GetComponent<ScrollRect>();
         AnswerText = AnswerText.GetComponent<Text>();
         ds = GameObject.Find("Interface").GetComponent<DialogueSystem>();
     }
@@ -53,41 +46,22 @@ public class CreateAnswers : MonoBehaviour {
             AnsArray[i].GetComponent<ButtonManager>().curI = ds.dialogueSetting.node[ds.i].answers[i].NValue;
             AnsArray[i].GetComponent<ButtonManager>().NumButton = i;
 
-            AnsArray[i].gameObject.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+          
 
-            AnsArray[i].alignment = TextAnchor.UpperLeft;
+            if (i == 0)
+            {
+                AnsArray[i].GetComponent<RectTransform>().position = new Vector2(gameObject.GetComponent<RectTransform>().position.x,
+                    gameObject.GetComponent<RectTransform>().position.y + 75);
+            }
+            else
+            {
+                AnsArray[i].GetComponent<RectTransform>().position = new Vector2(AnsArray[0].GetComponent<RectTransform>().position.x,
+                    AnsArray[i - 1].GetComponent<RectTransform>().position.y - (AnsArray[i - 1].GetComponent<RectTransform>().sizeDelta.y) /*GabBetweenPrefabs*/);
+            }
+ 
+
+          AnsArray[i].alignment = TextAnchor.UpperLeft;
 
         }
     }
-
-    public void Scroll(bool scroll)
-    {
-        IsScrolling = scroll;
-        if (scroll) scrollRect.inertia = true;
-    }
-
-    void FixedUpdate()
-    {
-        if (RectScrollView.anchoredPosition.y <= AnsArray[0].rectTransform.rect.y || 
-            RectScrollView.anchoredPosition.y >= AnsArray[AnsArray.Length - 1].rectTransform.rect.y)
-        {
-            IsScrolling = false;
-            scrollRect.inertia = false;
-        }
-
-        float scrollvelocity = Mathf.Abs(scrollRect.velocity.y);
-        if (scrollvelocity < 400f && !IsScrolling) scrollRect.inertia = false;
-
-        if (IsScrolling || scrollvelocity > 400f) return;
-        vectorsmoothpanel.y = Mathf.SmoothStep(RectScrollView.anchoredPosition.y, AnsArray[2].rectTransform.rect.y, smoothSpeedScroll * Time.fixedDeltaTime);
-        RectScrollView.anchoredPosition = vectorsmoothpanel;
-
-        Debug.Log(AnsArray[0].gameObject.transform.position.y);
-        Debug.Log(AnsArray[AnsArray.Length - 1].transform.position.y);
-    }
-
-    
-}  
-
-    
-
+}

@@ -142,14 +142,14 @@ public class DialogueSystem : MonoBehaviour {
             if (dialogueSetting.node[i].IsSentence)
             {
                 AnswerTable.SetActive(false);
-                SkipButton.SetActive(true);      
+                SkipButton.SetActive(true);
+                  
             }
 
             else
             {
-                AnswerTable.SetActive(false); // <-- не трогать это
                 AnswerTable.SetActive(true);
-                SkipButton.SetActive(false);
+                SkipButton.SetActive(true);
                 createAnswers.ShowAnswer();
             }
 
